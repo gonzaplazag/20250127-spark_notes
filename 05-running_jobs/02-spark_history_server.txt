@@ -1,0 +1,23 @@
+1. Para ejecutar el history server se tiene que ejecutar el spark submit con las opciones
+
+   --conf spark.eventLog.enabled=true \
+   --conf spark.eventLog.dir=/tmp/spark-events \
+
+Ejemplo: 
+
+spark-submit \
+   --executor-memory 1G \
+   --conf spark.eventLog.enabled=true \
+   --conf spark.eventLog.dir=/tmp/spark-events \
+   --name "Testing Spark argssssss" \
+   test.py \
+   --name joaco \
+   --age 42
+
+2. La carpeta esta /tmp/spark-events debe ser exactamente esta. Despues la app spark-history lee por default de aquí.
+
+3. Prendo spark-history-server app
+
+$SPARK_HOME/sbin/start-history-server.sh
+
+4. Accedo mediante http://localhost:18080/ (default)

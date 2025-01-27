@@ -1,0 +1,10 @@
+# Ejemplo de spark submit
+
+spark-submit \
+   --executor-memory 1G \
+   --conf spark.eventLog.enabled=true \
+   --conf spark.eventLog.dir=/tmp/spark-events \
+   --name "Testing Spark argssssss" \
+   test.py \
+   --name joaco \
+   --age 42
