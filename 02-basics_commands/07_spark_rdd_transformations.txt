@@ -1,0 +1,22 @@
+### Transformations: process to create a new rdd from operations on other rdd.
+
+# creo rdd
+val data = Array("text 1", "este es un texto largo", "text_3")
+val dataRDD = sc.parallelize(data)
+dataRDD.collect()
+
+# transformo. creo un nuevo rdd en base a un filtro
+# un rdd filtra bajo la logica element-wise
+val filterRDD = dataRDD.filter(line => line.length <  10)
+filterRDD.collect()
+
+### Filtrado mediante filter
+
+# .filter
+val data = Array(1,2,3,4,5)
+val dataRDD = sc.parallelize(data)
+dataRDD.collect()
+
+filterRDD = dataRDD.filter(elem => elem < 3)
+val filterRDD = dataRDD.filter(elem => elem < 3)
+filterRDD.collect()

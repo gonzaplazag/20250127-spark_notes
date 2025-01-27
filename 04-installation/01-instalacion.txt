@@ -1,0 +1,35 @@
+ --- 1. download file ---
+
+wget  -P /home/gonzalo/Downloads/ "https://dlcdn.apache.org/spark/spark-3.5.2/spark-3.5.2-bin-hadoop3.tgz"
+
+(-P flag: to choose dir to download)
+
+# --- 2. extract file ---
+tar xvf spark-3.5.2-bin-hadoop3.tgz
+
+(x: extract; v: verbose, f: the next argument is the file path)
+
+# --- 3. move ---
+sudo mv spark-3.5.2-bin-hadoop3 /opt/spark
+
+# --- 4. configure env variables ---
+subl ~/.bashrc
+
+(agrego al final del file)
+export SPARK_HOME=/opt/spark-3.5.3-bin-hadoop3
+export PATH=$PATH:$SPARK_HOME/bin
+
+(finalmente hago source)
+source ~/.bashrc
+
+# --- 5. Verifico ---
+(para scala shell)
+spark-shell
+(para sql shell)
+spark-sql
+(para python shell)
+pyspark
+
+# --- 6. Uninstall ---
+
+just rm /opt/spark

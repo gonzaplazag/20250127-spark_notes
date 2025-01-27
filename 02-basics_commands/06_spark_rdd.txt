@@ -1,0 +1,30 @@
+### to run in spark-shell
+
+# creo array y los transformo en rdd
+val intArray = Array(1,2,3,4,5,6,7,8,9,0)
+val intRDD = sc.parallelize(intArray)
+
+# tomo primer elemento rdd
+intRDD.first()
+
+# tomo primeros 3 elementos rdd
+intRDD.take(3)
+
+# tomo todos los elementos rdd
+intRDD.collect()
+intRDD.collect().foreach(println)
+
+# Me fijo partitions de una rdd
+intRDD.partitions.size
+
+# defino un rdd, pero explicitando numero de particiones.
+val intList = List(1,2,3,4,5,6,7,8,9,0)
+val listRDD = sc.parallelize(intList, 3)
+listRDD.partitions.size
+
+# rdd from file
+val fileRDD = sc.textFile("/home/gonzalo/Documents/projects/20241120-de-spark_notes/data.csv")
+fileRDD.first()
+fileRDD.take(10).foreach(println)
+fileRDD.partitions.size
+
